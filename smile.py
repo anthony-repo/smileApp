@@ -11,6 +11,9 @@ def initDB(*args, **kwargs):
     #     for t in tags:
     #         db.session.add(Tag(name=t))
     #     db.session.commit()
-
+    
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+

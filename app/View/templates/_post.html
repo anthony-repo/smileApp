@@ -6,15 +6,22 @@
         <tr>
             <td width="10%" >
                 <!--  (milestone1) TODO: include happiness-level image according to the `cost`s happiness_level .
-                For example : <img src="{{ url_for('static', filename = 'img//happiness-level-1.png' )}}"-->  
-
+                For example : <img src="{{ url_for('static', filename = 'img//happiness-level-1.png' )}}"-->
+                {% if post.happiness_level == 1 %}
+                    <img src="{{ url_for('static', filename = 'img//happiness-level-1.png' )}}">
+                {% elif post.hapiness_level == 2 %}
+                    <img src="{{ url_for('static', filename = 'img//happiness-level-2.png' )}}">
+                {% else %}
+                    <img src="{{ url_for('static', filename = 'img//happiness-level-3.png' )}}">
+                {% endif %}
             </td>
 
             <td width="80%" >
-                <div>
-                  <!-- (milestone1) TODO: include post body -->    
+                <div class="postmessage">
+                  <!-- (milestone1) TODO: include post body --> 
+                  <p> {{post.body}} </p>   
                </div>
-               <div> 
+               <div class="posttimestamp"> 
                   <!-- (milestone3) TODO: format the timestamp; display as local date/time-->
                   Posted at: {{ post.timestamp }}
                </div> 
@@ -27,8 +34,11 @@
                                        Style the submit button using `likebtn` CCS class selector. -->
                                        
                     <br>
+                    <form action="{{url_for("routes.like", post_id=post.id)}}" method="post">
+                        <input type="image" src="{{ url_for('static', filename = 'img//like.png' )}}", alt="Submit" class="likebtn" >
+                    </form>
                     <!-- (milestone1) TODO: include the likes count-->
-                    
+                    <p class="likecount"> {{post.likes}} </p>
                 </div>
                 <br> 
                  <!-- (milestone3) TODO: if the post is posted by the logged in user, include the "delete" button.  

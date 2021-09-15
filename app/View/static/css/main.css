@@ -36,7 +36,27 @@ a:hover {
 }
 
 .posttitle {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 5px;
+    font-size: 25;
     text-align: center;
+    font-weight: bold;
+}
+
+.posttimestamp {
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 10px;
+    text-align: right;
+    font-weight: 500;
+}
+
+.postmessage {
+    font-family:Arial, Helvetica, sans-serif;
+    padding: 10px 10px;
+}
+
+.likecount {
+    vertical-align: middle;
     font-weight: bold;
 }
 
@@ -64,4 +84,32 @@ a:hover {
 .likebtn:hover {
     background-image: url("..//img//like_hover.png");
     cursor:pointer;
+}
+
+.flash-container {
+    background: #99c5ee;
+    font-family: Tahoma;
+    font-size:16px;
+    padding: 25px;
+    margin: 10px 0px 10px 0px;
+}
+
+.formtitle {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 10px 0px 10px 0px;
+    width: 50%;
+    height: 5%;
+    padding: 20px;
+}
+
+.formbody {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width:80%;
+    height: 30%;
+}
+
+.formselect {
+    width: 20%;
+    height: 6%;
+    padding: 5px 5px;
 }
