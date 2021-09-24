@@ -110,6 +110,46 @@ a:hover {
 
 .formselect {
     width: 20%;
-    height: 6%;
+    height: 10%;
     padding: 5px 5px;
+}
+
+.postlist {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.postbox {
+    flex: middle;
+    vertical-align: middle;
+    background-color:#cce3f8;
+    width: 25%;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 0px 5px 0px;
+}
+
+.tagitem {
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 0px 5px 0px;
+    border: #cce3f8;
+    background-color:bisque;
+}
+
+@media screen and (min-width: 1200px) {
+    .postbox {
+        flex: 32%;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    .postbox {
+        flex:48%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .postbox {
+        flex: 99%;
+    }
 }

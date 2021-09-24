@@ -12,11 +12,9 @@
                 <!--Displays the form item for the post's `title`.--> 
                 {{ form.title.label }}<br>
                 {{ form.title(class="formtitle") }}<br>
-                <!-- TODO: (milestone 1) Display the error messages of the `title` field validator (if there are any validation errors).   -->  
                 {% for error in form.title.error %}
                     <span style='color: red;'>[{{error}}]</span>
                 {% endfor %}
-                <!-- TODO: (milestone1) Include the form item for the post's `body`. Apply appropriate styling for the `body`form  item.  -->
                 Post Message<br>
                 {{ form.body (class="formbody")}}<br>
                 
@@ -25,14 +23,14 @@
                     <span style='color: red;'>[{{error}}]</span>
                 {% endfor %}
 
-                Hapiness Level
-                {{ form.happiness_level (class="formselect")}}
+                
             </div>
             
             <!-- TODO: (milestone1) Include the form item for `happiness_level` selection. Apply appropriate styling for the `happiness_level` form item.  --> 
-            
+            Hapiness Level
+            {{ form.happiness_level (class="formselect")}}
             <!-- TODO: (milestone2) Include the form item for `tag` selection.   -->  
-
+            {{form.tag}}
 
             {{ form.submit(class="button") }}
         </form>
