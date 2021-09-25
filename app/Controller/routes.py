@@ -18,21 +18,18 @@ def index():
     sort_form = SortForm()
     posts = Post.query.order_by(Post.timestamp.desc())
     if sort_form.validate_on_submit():
-        posts = Post.query.order_by(eval(sort_form.sort_by.data).desc())
+        posts = Post.query.order_by(eval('Post.' + sort_form.sort_by.data).desc())
     return render_template('index.html', title="Smile Portal", posts=posts.all(), form = sort_form)
 
 @bp_routes.route('/postsmile', methods=['GET', 'POST'])
 def postsmile():
     post_form = PostForm()
-    if post_form.validate_on_submit():
-        def get_tagList():
-            selected_tag = []
-            for tag in post_form.tag.data:
-                selected_tag.append(tag)
-            return selected_tag
-            
+    if post_form.validate_on_submit():           
         new_post = Post(title=post_form.title.data, body=post_form.body.data, 
-                        happiness_level=post_form.happiness_level.data, tags=get_tagList())
+                        happiness_level=post_form.happiness_level.data)
+        for tag in post_form.tag.data:
+            new_post.tags.append(tag)
+        
         db.session.add(new_post)
         db.session.commit()
         flash('Your Post "' + new_post.title + '" has been successfully created!')
