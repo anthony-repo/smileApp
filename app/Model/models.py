@@ -1,7 +1,7 @@
 from datetime import datetime
-
 from flask.typing import BeforeRequestCallable
 from app import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 postTags = db.Table('post_tag', 
             db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key = True), 
@@ -27,3 +27,18 @@ class Tag(db.Model):
     def __repr__(self):
         return 'Tag id: {}, Tag name: {}'.format(self.id, self.name)
 
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(64), unique=True)
+    email = db.Column(db.String(120), unique=True)
+    password_hash = db.Column(db.String(128))
+
+    def __repr__(self):
+       return 'User id: {}, Username: {}'.format(self.id, self.username) 
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def get_password(self, password):
+        return check_password_hash(self.password_hash, password)
+    
