@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from flask_wtf.recaptcha import widgets
-from wtforms import StringField, SubmitField, SelectField, TextAreaField
+from wtforms import StringField, SubmitField, SelectField, TextAreaField, BooleanField
 from wtforms_sqlalchemy.fields import QuerySelectMultipleField
 from wtforms.widgets import ListWidget, CheckboxInput
 from wtforms.validators import  DataRequired, Length
@@ -17,6 +17,7 @@ class PostForm(FlaskForm):
     submit = SubmitField('Post')
 
 class SortForm(FlaskForm):
+    checkbox = BooleanField("Display my posts only")
     sort_by = SelectField('Sort By', choices = [('timestamp', 'Date'), ('title', 'Title'), 
                     ('likes', 'Number of Likes'), ('happiness_level', 'Happiness Level')])
     submit = SubmitField('Refresh')
